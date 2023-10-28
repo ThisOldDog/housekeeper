@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Housekeeper</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">Dashboard</string>
+
+    <string name="title_my">我</string>
+    <string name="my_option_setting">设置</string>
+</resources>
