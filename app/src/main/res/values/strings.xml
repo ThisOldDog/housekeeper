@@ -4,5 +4,6 @@
     <string name="title_dashboard">Dashboard</string>
 
     <string name="title_my">我</string>
+    <string name="my_option_avatar">头像</string>
     <string name="my_option_setting">设置</string>
 </resources>

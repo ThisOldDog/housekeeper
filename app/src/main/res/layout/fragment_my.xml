@@ -1,52 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.my.MyFragment">
-
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myViewModel"
+            type="pers.dog.housekeeper.viewmodel.MyViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_setting"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_row_background"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/row_padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.my.MyFragment">
 
-        <ImageView
-            android:id="@+id/image_setting"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_user"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/my_option_setting"
-            android:src="@drawable/ic_my_setting_24dp"
-            app:layout_constraintStart_toStartOf="@id/layout_setting"
-            app:layout_constraintTop_toTopOf="@id/layout_setting" />
+            android:background="@color/light_row_background"
+            android:orientation="horizontal"
+            android:padding="@dimen/row_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/text_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/row_padding"
-            android:layout_weight="1"
-            android:text="@string/my_option_setting"
-            android:textSize="@dimen/option_normal_size"
-            app:layout_constraintStart_toEndOf="@id/image_setting"
-            app:layout_constraintTop_toTopOf="@id/layout_setting" />
+            <ImageView
+                android:id="@+id/image_user_avatar"
+                android:layout_width="@dimen/img_large_size"
+                android:layout_height="@dimen/img_large_size"
+                android:contentDescription="@string/my_option_avatar"
+                app:layout_constraintStart_toStartOf="@id/layout_user"
+                app:layout_constraintTop_toTopOf="@id/layout_user" />
 
-        <ImageView
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/row_padding"
+                android:layout_weight="1"
+                android:text="@{myViewModel.my.name}"
+                android:textSize="@dimen/option_large_size"
+                app:layout_constraintStart_toEndOf="@id/image_user_avatar"
+                app:layout_constraintTop_toTopOf="@id/layout_user" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/my_option_setting"
+                android:src="@drawable/ic_click_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/layout_user"
+                app:layout_constraintTop_toTopOf="@id/layout_user" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_setting"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/my_option_setting"
-            android:src="@drawable/ic_click_24dp"
-            app:layout_constraintEnd_toEndOf="@id/layout_setting"
-            app:layout_constraintTop_toTopOf="@id/layout_setting" />
+            android:layout_marginTop="@dimen/row_padding"
+            android:background="@color/light_row_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/row_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_user">
+
+            <ImageView
+                android:id="@+id/image_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/my_option_setting"
+                android:src="@drawable/ic_my_setting_24dp"
+                app:layout_constraintStart_toStartOf="@id/layout_setting"
+                app:layout_constraintTop_toTopOf="@id/layout_setting" />
+
+            <TextView
+                android:id="@+id/text_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/row_padding"
+                android:layout_weight="1"
+                android:text="@string/my_option_setting"
+                android:textSize="@dimen/option_normal_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_setting"
+                app:layout_constraintTop_toTopOf="@id/layout_setting" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/my_option_setting"
+                android:src="@drawable/ic_click_24dp"
+                app:layout_constraintEnd_toEndOf="@id/layout_setting"
+                app:layout_constraintTop_toTopOf="@id/layout_setting" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

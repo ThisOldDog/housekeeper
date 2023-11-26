@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import pers.dog.housekeeper.databinding.FragmentMyBinding
+import pers.dog.housekeeper.viewmodel.MyViewModel
 
 class MyFragment : Fragment() {
 
@@ -22,18 +22,15 @@ class MyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val myViewModel =
-            ViewModelProvider(this).get(MyViewModel::class.java)
+        val myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
 
         _binding = FragmentMyBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.myViewModel = myViewModel
 
-        val layoutSetting: ConstraintLayout = binding.layoutSetting
-        layoutSetting.setOnClickListener {
-
-        }
-        return root
+        return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
