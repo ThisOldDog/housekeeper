@@ -22,15 +22,19 @@ class MyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
-
         _binding = FragmentMyBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.myViewModel = myViewModel
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val myViewModel = ViewModelProvider(this)[MyViewModel::class.java]
+
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.myViewModel = myViewModel
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
